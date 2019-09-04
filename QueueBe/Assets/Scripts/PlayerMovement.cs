@@ -8,8 +8,13 @@ public class PlayerMovement : MonoBehaviour
 
     public float forwardForce = 1000f;
     public float sidewaysForce = 500f;
+
+    public bool freezeRotation;
     
-   
+    void Start() {
+        rb.freezeRotation = freezeRotation;
+    }
+
     // Update is called once per frame
     // FixedUpdate for phsysics stuff
     void FixedUpdate()
