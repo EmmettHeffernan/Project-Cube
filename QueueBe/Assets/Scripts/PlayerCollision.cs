@@ -8,6 +8,8 @@ public class PlayerCollision : MonoBehaviour{
     public PlayerMovement movement;
     public AudioClip ImpactFX;
 
+    public GameObject crackedVersion;
+
     private void Start()
     {
         GetComponent<AudioSource>().playOnAwake = false;
@@ -22,6 +24,7 @@ public class PlayerCollision : MonoBehaviour{
         if (collisionInfo.collider.tag == "Obstacle")
         {
             movement.enabled = false;
+            spawnCracked();
             FindObjectOfType<GameManager>().EndGame();
             GetComponent<AudioSource>().Play();
         }
@@ -29,12 +32,20 @@ public class PlayerCollision : MonoBehaviour{
         if (collisionInfo.collider.tag == "DoublePassObst")
         {
             movement.enabled = false;
+            spawnCracked();
             FindObjectOfType<GameManager>().EndGame();
             GetComponent<AudioSource>().Play();
         }
 
-
     }
 
+    void spawnCracked()
+    {
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
+        gameObject.GetComponent<BoxCollider>().enabled = false;
+        gameObject.GetComponent<Rigidbody>().useGravity = false;
+        gameObject.GetComponent<Rigidbody>().drag = 99999999999999;
+        Instantiate(crackedVersion, transform.position, new Quaternion(0f, 0f, 0f, 0f));
+    }
 
 }

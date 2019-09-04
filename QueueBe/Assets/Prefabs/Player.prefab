@@ -141,6 +141,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 566024016822976219}
   ImpactFX: {fileID: 0}
+  crackedVersion: {fileID: 2841781622493672333, guid: e711eee8e6e5a4014a0b9e550f329759,
+    type: 3}
 --- !u!114 &566024016822976218
 MonoBehaviour:
   m_ObjectHideFlags: 0
