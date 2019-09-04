@@ -1,3 +1,5 @@
 # Project-Cube
 
-Made with Unity version 2019.2.1f1 
+A game by Emmett Heffernan and Ethan Fisher.
+
+Made with Unity version 2019.2.3f1 
