@@ -6,12 +6,16 @@ public class CollectCoin : MonoBehaviour
 {
 
     public AudioSource CoinFX;
-    
 
-    void OnTriggerEnter(Collider other)
+
+    void OnTriggerEnter(Collider collider)
     {
-        CoinFX.Play();
-        CoinScoringSystem.theScore += 1;
-        Destroy(gameObject);
+        // only collects coin if player hits coin
+        if (collider.name == "Player")
+        {
+            CoinFX.Play();
+            CoinScoringSystem.theScore += 1;
+            Destroy(gameObject);
+        }
     }
 }

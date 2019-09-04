@@ -7,13 +7,17 @@ public class ObstacleMovement : MonoBehaviour
 
     Vector3 pos1;
     Vector3 pos2;
+
+    // speed at which obstacle moves
     public float speed = 0.5f;
+
+    // determins the position of the obstacle at runtime
     public float startDelay = 0;
 
     void Start()
     {
-        pos1 = new Vector3(-6, 1, transform.position.z);
-        pos2 = new Vector3(6, 1, transform.position.z);
+        pos1 = new Vector3(-6.5f, 1, transform.position.z);
+        pos2 = new Vector3(6.5f, 1, transform.position.z);
     }
 
     void FixedUpdate()

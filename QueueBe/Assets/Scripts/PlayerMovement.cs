@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     public bool freezeRotation;
     
     void Start() {
+        // makes the player's rotation unchanging to avoid rotation drift
+        // (not currently active)
         rb.freezeRotation = freezeRotation;
     }
 

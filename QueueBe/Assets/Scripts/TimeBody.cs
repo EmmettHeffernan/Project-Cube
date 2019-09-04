@@ -7,8 +7,11 @@ public class TimeBody : MonoBehaviour
 
     bool isRewinding = false;
 
+    // the amout of time that can be rewound for this object
     public float recordTime = 1f;
 
+    // how long after player explosion to rewind the pieces back together
+    // (should be about 0.1 seconds less than half of the GameManager's restart delay)
 	public float rewindDelay = 1f;
 
     List<PointInTime> pointsInTime;
@@ -30,6 +33,7 @@ public class TimeBody : MonoBehaviour
         // if (Input.GetKeyUp(KeyCode.Return))
         // 	StopRewind();
         // Debug.Log("REWIND");
+        
         Invoke("StartRewind", rewindDelay);
     }
 
@@ -70,6 +74,7 @@ public class TimeBody : MonoBehaviour
     {
         isRewinding = true;
         rb.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
+        // turns off boxcollider on rewind to avoid ugliness
         rb.GetComponent<BoxCollider>().enabled = false;
         rb.isKinematic = true;
     }
