@@ -137,4 +137,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recordTime: 5
-  rewindDelay: 0.9
+  rewindDelay: 0.975

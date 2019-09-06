@@ -127,7 +127,9 @@ MonoBehaviour:
   rb: {fileID: 566024016822976217}
   forwardForce: 3000
   sidewaysForce: 100
-  freezeRotation: 0
+  backwardsForce: 100
+  freezeRotation: 1
+  minBreakVelocity: 5
 --- !u!114 &566024016822976220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,7 +153,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 566024016822975780}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 262f2bf749ffb49ab916caca644b881b, type: 3}
   m_Name: 

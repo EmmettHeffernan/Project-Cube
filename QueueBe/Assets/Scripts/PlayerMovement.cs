@@ -8,10 +8,12 @@ public class PlayerMovement : MonoBehaviour
 
     public float forwardForce = 1000f;
     public float sidewaysForce = 500f;
+    public float minBreakVelocity = 5f;
 
-    public bool freezeRotation;
-    
-    void Start() {
+    public bool freezeRotation = true;
+
+    void Start()
+    {
         // makes the player's rotation unchanging to avoid rotation drift
         // (not currently active)
         rb.freezeRotation = freezeRotation;
@@ -21,9 +23,12 @@ public class PlayerMovement : MonoBehaviour
     // FixedUpdate for phsysics stuff
     void FixedUpdate()
     {
-        // Adding a forward force
+        // Adding a forward force (if not breaking, or if going too slow)
         // *Time.deltaTime for frame rate optimization
-        rb.AddForce(0, 0, forwardForce * Time.deltaTime);
+        if (!Input.GetKey("s") || rb.velocity.z < minBreakVelocity)
+        {
+            rb.AddForce(0, 0, forwardForce * Time.deltaTime);
+        }
 
         if (Input.GetKey("d"))
         {
